@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>libsoykan-dev's Software Directory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+#myInput {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #fafafa;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align: center;">libsoykan-dev's Software Directory</h1>
+<style>
+a:link, a:visited {
+  background-color: #ffffff;
+  color: black;
+  padding: 15px 25px;
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover, a:active {
+  background-color: #bfbfbf;
+}
+</style>
+<hr/>
+<h4>Search in page</h4>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search articles..." title="Type a word or letter to filter.">
+<ul id="myUL">
+    <li><a title="DEVKÜTÜP (Türkçe)" href="http://libsoykan-dev.github.io/devkutup/tr">DEVKÜTÜP: Basit, grafik kütüphane programı</a></li>
+</ul>
+<hr/>
+<h4 style="text-align: center;">Author is not responsible for any fair use. This page and any other child pages are licensed under Creative Commons Attribution Non-Commercial Public License.</h4>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+</body>
+</html>
