@@ -1,43 +1,81 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
 <title>DEVARŞİV Web Sitesi</title>
-<h1 style="text-align: center;">DEVARŞİV</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+#myInput {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #fafafa;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align: center;">libsoykan-dev's Software Directory</h1>
+
 <style>
 a:link, a:visited {
   background-color: #ffffff;
   color: black;
   padding: 15px 25px;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
 }
-
 a:hover, a:active {
   background-color: #bfbfbf;
 }
 </style>
 <p style="text-align: center;"><a href="/munirnurettin/" target="_blank" rel="noopener">MÜNİR NURETTİN İCRA ARŞİVİ</a></p>
 <hr/>
-<h4>Yayınlarda arayın...</h4>
-
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Arama yapın..." title="Harf veya kelime girin...">
-
-
+<h4>Search in page</h4>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search articles..." title="Type a word or letter to filter.">
 <ul id="myUL">
-
-<hr/>
-<li style="text-align: left;"><a style="text-align: left;" title="Test" href="/index.html">Anasayfa</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </ul>
 <hr/>
-<h4 style="text-align: center;">DEVARŞİV. Site, herhangi bir telif hakkı sorumluluğunu almaz. Telif hakkı istemlerinizi sağlayıcıya iletiniz.</h4>
+<h4 style="text-align: center;">DEVARŞİV. Site, herhangi bir telif mesuliyeti üstlenmez. Sağlayıcıdan telif isteminde bulununuz.</h4>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+</body>
+</html>
